@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia Solar - Liberdade Energética para Sua Casa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .cta-header {
+            background: #f59e0b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-header:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-primary {
+            background: #f59e0b;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .cta-primary:hover {
+            background: #d97706;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3a8a;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .problem-card {
+            background: #fee2e2;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #dc2626;
+        }
+
+        .problem-card h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: #f0f9ff;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8fafc;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-color: #f59e0b;
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            background: #f59e0b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f8fafc;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background: #1e3a8a;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #1e40af;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* CTA Final */
+        .cta-final {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-final h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .urgency-bar {
+            background: #dc2626;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img src="logo.jpg" alt="Logo Habil Solar" style="height: 40px;"></div>
+                <button class="cta-header" onclick="scrollToSection('simulador')">
+                    Simular Economia Grátis
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Urgency Bar -->
+    <div class="urgency-bar">
+        ⚡ Financiamento facilitado mesmo com restrições!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Pare de Ser Refém da Conta de Luz!</h1>
+            <p>Assuma o controle da sua energia e economize até 95% na conta de luz com energia solar. Instalação rápida, sem burocracia e com garantia de 25 anos.</p>
+            <a href="#simulador" class="cta-primary">Simular Minha Economia Grátis</a>
+            <a href="#como-funciona" class="cta-secondary">Como Funciona?</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problem">
+        <div class="container">
+            <h2 class="section-title">Você Está Cansado Disso?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>📈 Conta de Luz Sempre Subindo</h3>
+                    <p>Parece que a cada mês a conta vem mais alta, e você não consegue fazer nada para controlar esse gasto que corrói seu orçamento familiar.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>😰 Medo de Investir no Desconhecido</h3>
+                    <p>Você quer economizar, mas tem receio de investir em algo que não entende completamente e teme ser enganado por empresas não confiáveis.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🏠 Preocupação com o Futuro da Família</h3>
+                    <p>Você se preocupa em deixar um legado positivo para seus filhos, mas sente que não está fazendo o suficiente pelo meio ambiente e pela economia familiar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">A Solução Está Aqui!</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>🎯 Controle Total dos Seus Gastos</h3>
+                    <p>Com energia solar, você produz sua própria energia e se blinda contra os aumentos abusivos das concessionárias. Economia previsível por décadas!</p>
+                </div>
+                <div class="solution-card">
+                    <h3>🛡️ Processo Simples e Seguro</h3>
+                    <p>Cuidamos de tudo para você: projeto, instalação, documentação e conexão com a rede. Sem burocracia, sem dor de cabeça, apenas economia!</p>
+                </div>
+                <div class="solution-card">
+                    <h3>🌱 Legado Sustentável</h3>
+                    <p>Valorize seu imóvel, economize milhares de reais e contribua para um planeta mais limpo. Seja o exemplo que sua família e comunidade precisam!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits">
+        <div class="container">
+            <h2 class="section-title">Por Que Escolher a HABIL SOLAR?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Economia de até 95%</h3>
+                    <p>Reduza drasticamente sua conta de luz e tenha mais dinheiro para o que realmente importa.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Instalação Rápida</h3>
+                    <p>Em média 1 dia de instalação. Você começa a economizar imediatamente.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Garantia de 25 Anos</h3>
+                    <p>Tranquilidade total com garantia estendida e suporte técnico especializado.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Monitoramento 24/7</h3>
+                    <p>Acompanhe sua produção de energia em tempo real pelo seu smartphone.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Certificação ISO 9001</h3>
+                    <p>Qualidade internacional reconhecida. Mais de 10.000 clientes satisfeitos.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Impacto Ambiental Positivo</h3>
+                    <p>Contribua para um planeta mais limpo e seja reconhecido como sustentável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Minha conta de luz era R$ 450/mês. Agora pago apenas R$ 25 de taxa mínima. Em 2 anos já economizei mais de R$ 10.000!"</p>
+                    <p class="testimonial-author">- Maria Silva, São Paulo</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Pensei que seria complicado, mas a equipe cuidou de tudo. Instalação rápida e sem dor de cabeça. Recomendo!"</p>
+                    <p class="testimonial-author">- João Santos, Rio de Janeiro</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Além da economia, minha casa ficou mais valorizada. Os vizinhos sempre perguntam sobre os painéis. Me sinto um pioneiro!"</p>
+                    <p class="testimonial-author">- Carlos Oliveira, Belo Horizonte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing">
+        <div class="container">
+            <h2 class="section-title">Escolha Seu Plano</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">ÚNICO PLANO</div>
+                    <h3 class="pricing-title">Plano Completo</h3>
+                    <div class="pricing-price">R$ 561,87<span style="font-size: 1rem;">/mês</span></div>
+                    <ul class="pricing-features">
+                        <li>✅ Geração de 1.360 kWh/mês</li>
+                        <li>✅ Instalação Inclusa</li>
+                        <li>✅ Garantia 25 anos</li>
+                        <li>✅ Monitoramento 24/7</li>
+                        <li>✅ Economia de até 95%</li>
+                        <li>✅ Suporte Prioritário</li>
+                    </ul>
+                    <a href="#simulador" class="cta-primary">Quero Este Plano</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Energia solar é muito cara para instalar?
+                </div>
+                <div class="faq-answer">
+                    <p>MITO! Com nosso financiamento facilitado, você pode instalar energia solar pagando parcelas menores que sua conta de luz atual. Muitos clientes começam a economizar desde o primeiro mês!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Funciona em dias nublados ou chuvosos?
+                </div>
+                <div class="faq-answer">
+                    <p>SIM! Os painéis solares funcionam mesmo em dias nublados, produzindo energia através da luz difusa. Além disso, o sistema é conectado à rede elétrica, garantindo energia 24 horas por dia.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Quanto tempo demora para instalar?
+                </div>
+                <div class="faq-answer">
+                    <p>A instalação física leva apenas 1 dia em média. O processo completo, incluindo aprovação da concessionária, leva de 30 a 60 dias. Cuidamos de toda a burocracia para você!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    E se a empresa sair do mercado?
+                </div>
+                <div class="faq-answer">
+                    <p>Temos mais de 10 anos no mercado, certificação ISO 9001 e mais de 10.000 clientes atendidos. Oferecemos garantia estendida e temos parcerias com empresas de manutenção em todo o Brasil.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Qual é o retorno do investimento?
+                </div>
+                <div class="faq-answer">
+                    <p>O payback médio é de 4 a 6 anos, mas você começa a economizar desde o primeiro mês. Considerando a vida útil de 25+ anos dos painéis, o retorno total pode chegar a 400% do investimento!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section class="section" id="simulador" style="background: #f0f9ff;">
+        <div class="container">
+            <h2 class="section-title">Simule Sua Economia Agora!</h2>
+            <div class="form-container">
+                <form id="simulatorForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp:</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="conta">Valor médio da conta de luz:</label>
+                        <select id="conta" name="conta" required>
+                            <option value="">Selecione...</option>
+                        <option value="100-500">R$ 100 - R$ 500</option>
+                            <option value="500-1000">R$ 500 - R$ 1000</option>
+                            <option value="1000-1500">R$ 1000 - R$ 1500</option>
+                            <option value="1500-2000">R$ 1500 - R$ 2000</option>
+                            <option value="2000+">Acima de R$ 2000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de imóvel:</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecione...</option>
+                            <option value="casa">Casa</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="empresa">Empresa</option>
+                            <option value="rural">Propriedade Rural</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-primary" style="width: 100%; margin: 0;">
+                        🚀 Simular Minha Economia Grátis
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Não Perca Mais Tempo!</h2>
+            <p>Junte-se aos milhares de brasileiros inteligentes que já assumiram o controle da sua energia. Sua liberdade financeira começa agora!</p>
+            <a href="#simulador" class="cta-primary">Quero Minha Simulação Grátis</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                ⏰ Oferta com financiamento ZERO juros válida apenas este mês!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HABIL SOLAR. Todos os direitos reservados.</p>
+            <p>📞 (67) 99697-54588 | 📧 habilsolarconsultoria@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Form Submission
+        document.getElementById('simulatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate calculation
+            let economia = 0;
+            switch(data.conta) {
+                case '100-500': economia = 3000; break;
+                case '500-1000': economia = 7500; break;
+                case '1000-1500': economia = 12000; break;
+                case '1500-2000': economia = 18000; break;
+                case '2000+': economia = 25000; break;
+            }
+            
+            // Show result
+            alert(`🎉 Parabéns ${data.nome}!\n\nSua economia anual estimada: R$ ${economia.toLocaleString('pt-BR')}\n\nEm 25 anos você pode economizar: R$ ${(economia * 25).toLocaleString('pt-BR')}\n\nNossa equipe entrará em contato em breve para apresentar sua proposta personalizada!`);
+            
+            // Here you would normally send the data to your server
+            console.log('Form data:', data);
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
